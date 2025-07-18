@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist - Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="remainder.html">Appointments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Manage Appointments</h1>
+        <form id="appointmentForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="event_name" required placeholder="Enter event name">
+            
+            <label for="eventDate">Event Date:</label>
+            <input type="datetime-local" id="eventDate" name="event_date" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <button type="submit">Add Appointment</button>
+        </form>
+        <div class="footer">Your virtual assistant for reminders!</div>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data =  {
+                eventName: formData.get('event_name'), // Change here
+                eventDate: formData.get('event_date'), // Change here
+                email: formData.get('email')
+    };
+
+            fetch('/add_appointment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                document.getElementById('appointmentForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error adding the appointment.');
+            });
+        });
+    </script>
+</body>
+</html>

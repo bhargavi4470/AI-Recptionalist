@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder Notifications</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+    
+      
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .reminder-list {
+            margin-top: 20px;
+        }
+
+        .reminder-item {
+            background: #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .no-reminders {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reminder Notifications</h1>
+    </header>
+    <div class="container">
+        <div class="reminder-list" id="reminderList">
+            <h2>Your Reminders</h2>
+            <!-- Reminders will be displayed here -->
+            <div class="no-reminders" id="noReminders">No reminders set.</div>
+        </div>
+    </div>
+
+    <script>
+        // Sample reminders data (this would typically come from a database or API)
+        const reminders = [
+            { text: "Doctor's Appointment", date: "2023-10-15T10:00:00" },
+            { text: "Meeting with Team", date: "2023-10-16T14:00:00" },
+            { text: "Grocery Shopping", date: "2023-10-17T17:00:00" }
+        ];
+
+        const reminderList = document.getElementById('reminderList');
+        const noReminders = document.getElementById('noReminders');
+
+        if (reminders.length === 0) {
+            noReminders.style.display = 'block';
+        } else {
+            noReminders.style.display = 'none';
+            reminders.forEach(reminder => {
+                const reminderItem = document.createElement('div');
+                reminderItem.classList.add('reminder-item');
+                reminderItem.innerHTML = `<strong>${reminder.text}</strong><br>${new Date(reminder.date).toLocaleString()}`;
+                reminderList.appendChild(reminderItem);
+            });
+        }
+    </script>
+</body>
+</html>
