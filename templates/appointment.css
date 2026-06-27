@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); /* Add your background image path */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    line-height: 1.6; /* Improve readability */
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background: linear-gradient(135deg, rgba(69, 75, 224, 0.8), rgba(66, 193, 221, 0.9)); /* Gradient background */
+    padding: 20px;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Deeper shadow for more depth */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s, transform 0.3s; /* Add transform for hover effect */
+}
+
+nav ul li a:hover {
+    color: #ffdd57; /* Yellow hover effect */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto; /* Add margin to avoid header overlap */
+    background: rgba(255, 255, 255, 0.95); /* Slightly more opaque background */
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for more depth */
+    backdrop-filter: blur(10px); /* Add a blur effect to the background */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #2575fc; /* Blue color for the heading */
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 20px; /* Space below heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 700;
+    font-size: 1.1em; /* Slightly larger font for labels */
+    color: #444; /* Darker label text for better contrast */
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for inputs */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and shadow */
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+input[type="email"]:focus {
+    border-color: #2575fc; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.5); /* Add a glow effect on focus */
+}
+
+button {
+    width: 100%;
+    padding: 12px; /* Increased padding for buttons */
+    background: linear-gradient(135deg, #2575fc, #6a11cb); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s, transform ;
+}
